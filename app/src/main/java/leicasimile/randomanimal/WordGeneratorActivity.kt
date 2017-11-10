@@ -16,6 +16,6 @@ class WordGeneratorActivity : AppCompatActivity() {
     }
 
     private fun fetchResult() {
-        
+
     }
 }
