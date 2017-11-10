@@ -8,7 +8,7 @@ class DatabaseHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "", null, 1) {
         private var instance: DatabaseHelper? = null
 
         @Synchronized
-        fun Instance(ctx: Context): DatabaseHelper {
+        fun getInstance(ctx: Context): DatabaseHelper {
             if (instance == null) {
                 instance = DatabaseHelper(ctx.applicationContext)
             }
@@ -17,8 +17,12 @@ class DatabaseHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "", null, 1) {
     }
 
     override fun onCreate(db: SQLiteDatabase) {
+
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
     }
 }
+
+val Context.database: DatabaseHelper
+    get() = DatabaseHelper.getInstance(applicationContext)
