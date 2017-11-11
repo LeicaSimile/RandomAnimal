@@ -6,6 +6,8 @@ import org.jetbrains.anko.db.ManagedSQLiteOpenHelper
 class DatabaseHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "", null, 1) {
     companion object {
         private var instance: DatabaseHelper? = null
+        val DB_NAME = "words.db"
+        val DB_VERSION = 1
 
         @Synchronized
         fun getInstance(ctx: Context): DatabaseHelper {
@@ -17,7 +19,6 @@ class DatabaseHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "", null, 1) {
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
